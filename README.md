@@ -1,2 +1,1 @@
-# MRM-IT
-School project for project proposal
+# MRM-IT,School project for project proposal

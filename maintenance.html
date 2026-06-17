@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predictive Maintenance | MRM</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="logo">
+        <h2>MRM</h2>
+        <p>Smart Manufacturing</p>
+      </div>
+      <nav>
+        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="#"><i class="fas fa-industry"></i> Production</a>
+        <a href="maintenance.html" class="active"><i class="fas fa-tools"></i> Predictive Maintenance</a>
+        <a href="inventory.html"><i class="fas fa-boxes"></i> Inventory</a>
+        <a href="customer-portal.html"><i class="fas fa-users"></i> Customer Portal</a>
+        <a href="verification.html"><i class="fas fa-shield-alt"></i> Product Verification</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-navbar">
+        <h2>Predictive Maintenance System</h2>
+      </header>
+
+      <div class="content">
+        <h1>Equipment Health Monitoring</h1>
+
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <h3>Overall Health</h3>
+            <h2 style="color:#00a651;">87%</h2>
+          </div>
+          <div class="kpi-card">
+            <h3>Machines at Risk</h3>
+            <h2 style="color:#e74c3c;">3</h2>
+          </div>
+          <div class="kpi-card">
+            <h3>Next Maintenance</h3>
+            <h2>2 Days</h2>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Machine Health Status</h3>
+            <canvas id="healthChart" height="140"></canvas>
+          </div>
+          <div class="card">
+            <h3>Upcoming Maintenance Alerts</h3>
+            <ul class="alert-list">
+              <li><strong>Machine M3 (Profiling Line)</strong> - Bearing wear detected (High Priority)</li>
+              <li><strong>Machine C7 (Coating Line)</strong> - Vibration anomaly (Medium Priority)</li>
+              <li><strong>Machine R2 (Rolling Mill)</strong> - Temperature rising (Low Priority)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Machine Health Chart
+    const ctx = document.getElementById('healthChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Healthy', 'Warning', 'Critical'],
+        datasets: [{
+          data: [14, 4, 2],
+          backgroundColor: ['#00a651', '#f1c40f', '#e74c3c']
+        }]
+      },
+      options: {
+        responsive: true,
+        cutout: '70%'
+      }
+    });
+  </script>
+</body>
+</html>

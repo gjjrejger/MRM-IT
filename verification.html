@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Verification | MRM</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <h2>MRM</h2>
+        <p>Smart Manufacturing</p>
+      </div>
+      <nav>
+        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="#"><i class="fas fa-industry"></i> Production</a>
+        <a href="maintenance.html"><i class="fas fa-tools"></i> Predictive Maintenance</a>
+        <a href="inventory.html"><i class="fas fa-boxes"></i> Inventory</a>
+        <a href="customer-portal.html"><i class="fas fa-users"></i> Customer Portal</a>
+        <a href="verification.html" class="active"><i class="fas fa-shield-alt"></i> Product Verification</a>
+        <a href="#"><i class="fas fa-chart-bar"></i> Reports</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="top-navbar">
+        <div class="search-bar">
+          <input type="text" placeholder="Search product code...">
+        </div>
+        <div class="user-info">
+          <span>Welcome, Admin</span>
+          <i class="fas fa-bell"></i>
+          <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
+        </div>
+      </header>
+
+      <div class="content">
+        <h1>Product Authentication System</h1>
+        <p class="date">Blockchain-Powered Verification • Real-time Results</p>
+
+        <div class="verification-container">
+          <div class="verify-card">
+            <h2>Verify MRM Product</h2>
+            <p>Enter the product code or scan QR code</p>
+            
+            <div class="input-group">
+              <input type="text" id="product-code" placeholder="e.g. MRM-2026-78492" maxlength="20">
+              <button onclick="verifyProduct()" class="verify-btn">
+                <i class="fas fa-check-circle"></i> Verify Now
+              </button>
+            </div>
+
+            <div id="verification-result" class="result-box"></div>
+          </div>
+
+          <!-- How it Works -->
+          <div class="info-card">
+            <h3>How Blockchain Verification Works</h3>
+            <ul>
+              <li>Each genuine MRM product has a unique digital certificate</li>
+              <li>Verification is done on a secure blockchain ledger</li>
+              <li>Prevents counterfeit products in the market</li>
+              <li>Instant results with full traceability</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Recent Verifications -->
+        <div class="card">
+          <h3>Recent Verifications</h3>
+          <table id="verification-table">
+            <thead>
+              <tr>
+                <th>Product Code</th>
+                <th>Product Name</th>
+                <th>Status</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+  <script>
+    // Sample recent verifications
+    let recentVerifications = [
+      { code: "MRM-2026-78492", name: "Versatile Box Profile", status: "Genuine", time: "2 mins ago" },
+      { code: "MRM-2026-65123", name: "Lifestile Tile", status: "Genuine", time: "15 mins ago" },
+      { code: "MRM-2026-11234", name: "Dumuzas", status: "Genuine", time: "1 hour ago" }
+    ];
+
+    function renderRecentVerifications() {
+      const tbody = document.querySelector('#verification-table tbody');
+      tbody.innerHTML = '';
+
+      recentVerifications.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><strong>${item.code}</strong></td>
+          <td>${item.name}</td>
+          <td><span class="status genuine">✅ ${item.status}</span></td>
+          <td>${item.time}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    // Main Verify Function (connected to script.js)
+    function verifyProduct() {
+      const codeInput = document.getElementById('product-code');
+      const code = codeInput.value.trim();
+      const resultDiv = document.getElementById('verification-result');
+
+      if (!code) {
+        resultDiv.innerHTML = `<p style="color:#e74c3c;">Please enter a product code</p>`;
+        return;
+      }
+
+      resultDiv.innerHTML = `<p class="verifying">🔍 Verifying on Blockchain...</p>`;
+
+      setTimeout(() => {
+        if (code.length >= 6) {
+          resultDiv.innerHTML = `
+            <div class="success-result">
+              <h2>✅ AUTHENTIC PRODUCT</h2>
+              <p><strong>Product:</strong> MRM Genuine Roofing Sheet</p>
+              <p><strong>Batch:</strong> ${code}</p>
+              <p><strong>Manufactured:</strong> March 2026</p>
+              <p><strong>Status:</strong> <span style="color:#00a651;">Verified on Blockchain</span></p>
+            </div>
+          `;
+
+          // Add to recent verifications
+          recentVerifications.unshift({
+            code: code,
+            name: "MRM Roofing Product",
+            status: "Genuine",
+            time: "Just now"
+          });
+
+          if (recentVerifications.length > 5) recentVerifications.pop();
+          renderRecentVerifications();
+        } else {
+          resultDiv.innerHTML = `
+            <div class="error-result">
+              <h2>❌ VERIFICATION FAILED</h2>
+              <p>This product code appears to be invalid or counterfeit.</p>
+              <p>Please contact MRM support.</p>
+            </div>
+          `;
+        }
+      }, 1500);
+    }
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', () => {
+      renderRecentVerifications();
+      
+      // Allow pressing Enter to verify
+      const codeInput = document.getElementById('product-code');
+      if (codeInput) {
+        codeInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') verifyProduct();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Management | MRM</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="logo">
+        <h2>MRM</h2>
+        <p>Smart Manufacturing</p>
+      </div>
+      <nav>
+        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="#"><i class="fas fa-industry"></i> Production</a>
+        <a href="maintenance.html"><i class="fas fa-tools"></i> Predictive Maintenance</a>
+        <a href="inventory.html" class="active"><i class="fas fa-boxes"></i> Inventory</a>
+        <a href="customer-portal.html"><i class="fas fa-users"></i> Customer Portal</a>
+        <a href="verification.html"><i class="fas fa-shield-alt"></i> Product Verification</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-navbar">
+        <h2>Inventory Management</h2>
+      </header>
+
+      <div class="content">
+        <div class="search-container">
+          <input type="text" id="inventory-search" placeholder="Search by product or material..." onkeyup="filterInventory()">
+        </div>
+
+        <table id="inventory-table">
+          <thead>
+            <tr>
+              <th>Item Code</th>
+              <th>Product Name</th>
+              <th>Category</th>
+              <th>Stock Level</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>MRM-R001</td>
+              <td>Versatile Box Profile</td>
+              <td>Roofing Sheets</td>
+              <td>8,450</td>
+              <td><span class="status good">In Stock</span></td>
+            </tr>
+            <tr>
+              <td>MRM-C002</td>
+              <td>Steel Coils (AZ)</td>
+              <td>Raw Material</td>
+              <td>124</td>
+              <td><span class="status low">Low Stock</span></td>
+            </tr>
+            <tr>
+              <td>MRM-L003</td>
+              <td>Lifestile Tiles</td>
+              <td>Roofing Sheets</td>
+              <td>3,210</td>
+              <td><span class="status good">In Stock</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

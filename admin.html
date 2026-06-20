@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | MRM System</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="logo">
+        <h2>MRM</h2>
+        <p>Admin Panel</p>
+      </div>
+      <nav>
+        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Main Dashboard</a>
+        <a href="admin.html" class="active"><i class="fas fa-user-shield"></i> Admin Panel</a>
+        <a href="inventory.html"><i class="fas fa-boxes"></i> Inventory</a>
+        <a href="customer-portal.html"><i class="fas fa-users"></i> Customers</a>
+        <a href="verification.html"><i class="fas fa-shield-alt"></i> Verification</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-navbar">
+        <h2>Admin Control Panel</h2>
+      </header>
+
+      <div class="content">
+        <h1>System Administration</h1>
+        <p class="current-date"></p>
+
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <i class="fas fa-boxes"></i>
+            <h3>Total Products</h3>
+            <h2>248</h2>
+          </div>
+          <div class="kpi-card">
+            <i class="fas fa-users"></i>
+            <h3>Registered Customers</h3>
+            <h2>156</h2>
+          </div>
+          <div class="kpi-card">
+            <i class="fas fa-file-alt"></i>
+            <h3>Today's Orders</h3>
+            <h2>18</h2>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Quick Admin Actions</h3>
+          <button onclick="alert('Inventory Updated!')">Update Stock Levels</button>
+          <button onclick="alert('Report Generated!')">Generate Monthly Report</button>
+          <button onclick="alert('New User Added!')">Add New Customer</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

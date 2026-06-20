@@ -3,64 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Portal | Mabati Rolling Mills</title>
+  <title>Customer Portal | MRM</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
 <body>
   <div class="dashboard-container">
-    
-    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="logo">
         <h2>MRM</h2>
         <p>Customer Portal</p>
       </div>
+    
       <nav>
-        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Admin Dashboard</a>
+        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
         <a href="customer-portal.html" class="active"><i class="fas fa-users"></i> Customer Portal</a>
+        <a href="inventory.html"><i class="fas fa-boxes"></i> Products</a>
         <a href="verification.html"><i class="fas fa-shield-alt"></i> Verify Product</a>
-        <a href="#"><i class="fas fa-shopping-cart"></i> My Orders</a>
-        <a href="#"><i class="fas fa-box"></i> Track Shipment</a>
-        <a href="#"><i class="fas fa-file-invoice"></i> Invoices</a>
       </nav>
     </aside>
 
-    <!-- Main Content -->
     <main class="main-content">
       <header class="top-navbar">
         <h2>Customer Portal</h2>
-        <div class="user-info">
-          <span>Welcome, John Doe (Customer)</span>
-          <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
-        </div>
       </header>
 
       <div class="content">
         <h1>Welcome to MRM Customer Portal</h1>
-        <p class="date current-date"></p>
+        <p class="current-date"></p>
 
-        <!-- Quick Stats -->
         <div class="kpi-grid">
           <div class="kpi-card">
             <i class="fas fa-shopping-bag"></i>
-            <h3>Active Orders</h3>
+            <h3>My Active Orders</h3>
             <h2>3</h2>
           </div>
           <div class="kpi-card">
             <i class="fas fa-truck"></i>
             <h3>In Transit</h3>
-            <h2>2</h2>
+            <h2>1</h2>
           </div>
           <div class="kpi-card">
             <i class="fas fa-check-circle"></i>
             <h3>Delivered</h3>
-            <h2>8</h2>
-            <p>This Month</p>
+            <h2>7</h2>
           </div>
         </div>
 
-        <!-- My Recent Orders -->
         <div class="card">
-          <h3>My Recent Orders</h3>
+          <h3>Recent Orders</h3>
           <table class="order-table">
             <thead>
               <tr>
@@ -69,47 +60,30 @@
                 <th>Quantity</th>
                 <th>Status</th>
                 <th>Date</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>MRM-ORD-7842</strong></td>
+                <td>MRM-ORD-7842</td>
                 <td>Versatile Box Profile</td>
-                <td>450 Sheets</td>
-                <td><span class="status delivered">Delivered</span></td>
-                <td>28 Mar 2026</td>
-                <td><button class="small-btn">Track</button></td>
+                <td>450</td>
+                <td><span class="status transit">In Transit</span></td>
+                <td>05 Apr 2026</td>
               </tr>
               <tr>
-                <td><strong>MRM-ORD-7911</strong></td>
-                <td>Lifestile Tile Profile</td>
-                <td>320 Sheets</td>
-                <td><span class="status transit">In Transit</span></td>
-                <td>5 Apr 2026</td>
-                <td><button class="small-btn">Track</button></td>
+                <td>MRM-ORD-7911</td>
+                <td>Lifestile Tile</td>
+                <td>320</td>
+                <td><span class="status delivered">Delivered</span></td>
+                <td>28 Mar 2026</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <!-- Quick Order -->
         <div class="card">
           <h3>Place New Order</h3>
-          <div class="order-form">
-            <input type="text" placeholder="Product Name (e.g. Versatile)">
-            <input type="number" placeholder="Quantity (Sheets)">
-            <button onclick="placeOrder()">Submit Order Request</button>
-          </div>
-        </div>
-
-        <!-- Product Verification Quick Access -->
-        <div class="card">
-          <h3>Verify Your Product</h3>
-          <p>Ensure authenticity of your MRM products</p>
-          <a href="verification.html" class="verify-link">
-            <i class="fas fa-shield-alt"></i> Go to Product Verification →
-          </a>
+          <button onclick="placeOrder()" class="action-btn">Request New Order</button>
         </div>
       </div>
     </main>
@@ -118,7 +92,7 @@
   <script src="assets/js/script.js"></script>
   <script>
     function placeOrder() {
-      alert("✅ Order Request Submitted Successfully!\nOur sales team will contact you shortly.");
+      alert("✅ Order request submitted successfully!\nOur team will contact you shortly.");
     }
   </script>
 </body>

@@ -3,26 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | MRM System</title>
+  <title>Login | Mabati Rolling Mills</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="login-body">
   <div class="login-container">
     <div class="login-box">
-      <div class="login-header">
-        <h1>MRM</h1>
-        <p>Smart Manufacturing System</p>
-      </div>
       
-      <h2>Welcome Back</h2>
-      <p>Sign in to access the Mabati Rolling Mills IT System</p>
+      <!-- Logo -->
+      <div class="login-header">
+        <img src="images/logo.png" alt="Mabati Rolling Mills" class="login-logo">
+        <h1>Mabati Rolling Mills</h1>
+        <p>Inventory & Order Management System</p>
+      </div>
+
+      <h2>Sign In</h2>
 
       <form id="loginForm">
         <div class="input-group">
           <i class="fas fa-user"></i>
           <input type="text" id="username" placeholder="Username" required>
         </div>
+        
         <div class="input-group">
           <i class="fas fa-lock"></i>
           <input type="password" id="password" placeholder="Password" required>
@@ -32,12 +35,13 @@
       </form>
 
       <div class="login-footer">
-        <p>Demo Credentials:</p>
-        <small><strong>Username:</strong> admin &nbsp; | &nbsp; <strong>Password:</strong> admin</small>
+        <small>Demo Credentials</small><br>
+        <small><strong>Username:</strong> admin &nbsp;&nbsp; | &nbsp;&nbsp; <strong>Password:</strong> admin</small>
       </div>
+
     </div>
   </div>
 
-  <script src="assets/js/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

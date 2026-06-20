@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MRM Dashboard | Mabati Rolling Mills</title>
+  <title>Dashboard | MRM System</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -14,105 +14,66 @@
     <aside class="sidebar">
       <div class="logo">
         <h2>MRM</h2>
-        <p>Smart Manufacturing</p>
+        <p>Inventory & Order System</p>
       </div>
       <nav>
         <a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-        <a href="#"><i class="fas fa-industry"></i> Production</a>
-        <a href="maintenance.html"><i class="fas fa-tools"></i> Predictive Maintenance</a>
         <a href="inventory.html"><i class="fas fa-boxes"></i> Inventory</a>
         <a href="customer-portal.html"><i class="fas fa-users"></i> Customer Portal</a>
         <a href="verification.html"><i class="fas fa-shield-alt"></i> Product Verification</a>
-        <a href="#"><i class="fas fa-chart-bar"></i> Reports</a>
+        <a href="admin.html"><i class="fas fa-user-shield"></i> Admin Panel</a>
       </nav>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content">
-      <!-- Top Navbar -->
       <header class="top-navbar">
-        <div class="search-bar">
-          <input type="text" placeholder="Search products, orders...">
-        </div>
+        <h2>Dashboard</h2>
         <div class="user-info">
           <span>Welcome, Admin</span>
           <i class="fas fa-bell"></i>
-          <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
+          <img src="images/logo.png" alt="Profile" class="profile-pic" style="width: 40px; border-radius: 50%;">
         </div>
       </header>
 
-      <!-- Dashboard Content -->
       <div class="content">
-        <h1>Production Dashboard</h1>
-        <p class="date">Today: <strong id="current-date"></strong></p>
+        <h1>Welcome to MRM System</h1>
+        <p class="current-date"></p>
+
+        <!-- Hero Image -->
+        <div class="hero-image-container" style="margin: 25px 0 35px 0;">
+          <img src="images/interior.png" 
+               alt="MRM Factory Interior" 
+               style="width: 100%; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.15);">
+        </div>
 
         <!-- KPI Cards -->
         <div class="kpi-grid">
           <div class="kpi-card">
-            <i class="fas fa-cogs"></i>
-            <h3>Production Efficiency</h3>
-            <h2>92%</h2>
-            <p class="positive">↑ 4% from yesterday</p>
+            <i class="fas fa-boxes"></i>
+            <h3>Total Stock Items</h3>
+            <h2>248</h2>
           </div>
           <div class="kpi-card">
-            <i class="fas fa-running"></i>
-            <h3>Machines Running</h3>
-            <h2>18/20</h2>
-            <p class="warning">2 under maintenance</p>
+            <i class="fas fa-shopping-cart"></i>
+            <h3>Pending Orders</h3>
+            <h2>12</h2>
           </div>
           <div class="kpi-card">
-            <i class="fas fa-box"></i>
-            <h3>Daily Output</h3>
-            <h2>12,450</h2>
-            <p class="positive">Sheets Produced</p>
+            <i class="fas fa-users"></i>
+            <h3>Active Customers</h3>
+            <h2>89</h2>
           </div>
           <div class="kpi-card">
-            <i class="fas fa-exclamation-triangle"></i>
-            <h3>Maintenance Alerts</h3>
-            <h2 style="color:#e74c3c;">3</h2>
-            <p class="danger">Requires Attention</p>
+            <i class="fas fa-file-alt"></i>
+            <h3>Today's Orders</h3>
+            <h2>18</h2>
           </div>
-        </div>
-
-        <!-- Charts & Recent Activity -->
-        <div class="grid-2">
-          <!-- Demand Forecast -->
-          <div class="card">
-            <h3>Demand Forecast (Next 7 Days)</h3>
-            <div class="chart-placeholder">
-              <p>[AI Demand Forecast Chart - Peak on Day 5]</p>
-            </div>
-          </div>
-
-          <!-- Recent Activity -->
-          <div class="card">
-            <h3>Recent Activity</h3>
-            <ul class="activity-list">
-              <li><strong>Order #MRM-7842</strong> - 450 Versatile Sheets - Completed</li>
-              <li><strong>Machine M3</strong> - Predictive Maintenance Alert</li>
-              <li><strong>Raw Material</strong> - Steel Coils restocked (12 tons)</li>
-              <li><strong>Customer</strong> - Verification request for 200 Lifestile sheets</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Quick Actions -->
-        <div class="quick-actions">
-          <h3>Quick Actions</h3>
-          <button onclick="alert('New Production Order Started!')">Start Production Order</button>
-          <button onclick="window.location.href='maintenance.html'">Check Maintenance</button>
-          <button onclick="window.location.href='verification.html'">Verify Product</button>
         </div>
       </div>
     </main>
   </div>
 
-  <script src="assets/js/script.js"></script>
-  <script>
-    // Display current date
-    document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-GB', {
-      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
